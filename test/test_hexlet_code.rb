@@ -39,7 +39,7 @@ class TestHexletCode < Minitest::Test
     expected_result = "<form action=\"#\" method=\"post\" class=\"hexlet-form\"></form>"
     user = User.new
     attrs = { class: "hexlet-form" }
-    result = HexletCode.form_for(user, attrs) { |f| }
+    result = HexletCode.form_for(user, **attrs) { |f| }
     assert_equal expected_result, result
   end
 
@@ -47,7 +47,7 @@ class TestHexletCode < Minitest::Test
     expected_result = "<form action=\"/profile\" method=\"post\" class=\"hexlet-form\"></form>"
     user = User.new
     attrs = { class: "hexlet-form", url: "/profile" }
-    result = HexletCode.form_for(user, attrs) { |f| }
+    result = HexletCode.form_for(user, **attrs) { |f| }
     assert_equal expected_result, result
   end
 end
