@@ -1,0 +1,10 @@
+input:
+  tag: "input"
+  defaults:
+    type: "text"
+
+text:
+  tag: "textarea"
+  defaults:
+    :cols: 20
+    :rows: 40
