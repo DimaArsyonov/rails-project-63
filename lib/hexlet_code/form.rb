@@ -44,7 +44,7 @@ module HexletCode
       url = attrs.delete(:url) || "#"
       form_attrs = { action: url, method: method }.merge(attrs)
       Tag.build("form", form_attrs) do
-        @fields_html.join("\n")
+        @fields_html.join
       end
     end
   end
