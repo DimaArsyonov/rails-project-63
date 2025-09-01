@@ -27,17 +27,15 @@ module HexletCode
     def input(field_name, as: :input, **attrs)
       final_attrs = collect_attrs(field_name, as, **attrs)
       tag = "HexletCode::Tags::#{as.to_s.capitalize}".constantize
-      html = tag.build(field_name, final_attrs[:value], final_attrs) { final_attrs[:value].to_s }
-      # tag = tag_name.constantize
-      # final_attrs[:value] = value if value
-      # html = if tag == HexletCode::Tags::Input
-      # puts tag
-      # puts final_attrs
-      # tag.build(field_name, final_attrs[:value], final_attrs) { final_attrs[:value].to_s }
-      # else
-      # tag.build(field_name, final_attrs[:value], final_attrs) { final_attrs[:value].to_s }
-      # end
-      @fields_html << html
+      input_html = tag.build(field_name, final_attrs[:value], final_attrs) { final_attrs[:value].to_s }
+      label_html = Tag.build("label", { for: field_name }) do
+        field_name.to_s.capitalize
+      end
+      @fields_html << "#{label_html}#{input_html}"
+    end
+
+    def submit(value = "Save")
+      @fields_html << Tag.build("input", { type: "submit", value: value })
     end
 
     def to_final_html(action: "#", method: "post", **attrs)
