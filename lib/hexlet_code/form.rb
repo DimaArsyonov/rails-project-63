@@ -38,7 +38,7 @@ module HexletCode
       @fields_html << Tag.build("input", { type: "submit", value: value })
     end
 
-    def to_final_html(action: "#", method: "post", **attrs)
+    def to_final_html(method: "post", **attrs)
       url = attrs.delete(:url) || "#"
       form_attrs = { action: url, method: method }.merge(attrs)
       Tag.build("form", form_attrs) do
