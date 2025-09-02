@@ -2,6 +2,7 @@
 
 module HexletCode
   module Tags
+    # Textarea tag
     class Text
       autoload :Tag, File.expand_path("../tag.rb", __dir__)
       def self.build(name, value, attrs)

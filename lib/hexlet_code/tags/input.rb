@@ -2,6 +2,7 @@
 
 module HexletCode
   module Tags
+    # Input tag
     class Input
       autoload :Tag, File.expand_path("../tag.rb", __dir__)
       def self.build(name, value, attrs, &_block)

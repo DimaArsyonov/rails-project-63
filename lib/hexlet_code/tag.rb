@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module HexletCode
+  # Tag — module responsible for generating HTML tags
   module Tag
     def self.build(name, attrs = {})
       attributes = attrs.map { |key, value| "#{key}=\"#{value}\"" }.join(" ")

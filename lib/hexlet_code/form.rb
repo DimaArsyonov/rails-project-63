@@ -5,8 +5,9 @@ require_relative "tag"
 require "active_support/core_ext/string/inflections"
 
 CONFIG = YAML.load_file(File.expand_path("../../config/tags.yml", __dir__))
-
+# HexletCode — main module of my project, responsible for all processes of HTML form generation
 module HexletCode
+  # Form — class responsible for form generation
   class Form
     def initialize(user)
       @user = user
