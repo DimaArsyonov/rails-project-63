@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 require_relative 'hexlet_code/version'
-require_relative 'hexlet_code/tags/input'
-require_relative 'hexlet_code/tags/text'
 
 # HexletCode — main module of my project, responsible for all processes of HTML form generation
 module HexletCode
   class Error < StandardError; end
+  autoload :FormBuilder, File.expand_path('hexlet_code/form_builder.rb', __dir__)
+  autoload :FormRenderer, File.expand_path('hexlet_code/form_renderer.rb', __dir__)
   autoload :Tag, File.expand_path('hexlet_code/tag.rb', __dir__)
-  autoload :Form, File.expand_path('hexlet_code/form.rb', __dir__)
+  autoload :Tags, File.expand_path('hexlet_code/tags/tags.rb', __dir__)
 
-  def self.form_for(user, **attrs)
-    form = Form.new(user)
-    yield(form) if block_given?
-    form.to_final_html(**attrs)
+  def self.form_for(object, attributes = {})
+    builded_form = FormBuilder.new(object, **attributes)
+    yield(builded_form) if block_given?
+    FormRenderer.render_html(builded_form)
   end
 end

@@ -4,10 +4,10 @@ module HexletCode
   module Tags
     # Input tag
     class Input
-      autoload :Tag, File.expand_path('../tag.rb', __dir__)
+      TYPE = 'text'
       def self.build(name, value, attrs, &)
         final_attrs = attrs.except(attrs.key(value), 'type')
-        HexletCode::Tag.build('input', { name: name, type: 'text', value: value }.merge(final_attrs))
+        HexletCode::Tag.build('input', { name: name, type: TYPE, value: value }.merge(final_attrs))
       end
     end
   end

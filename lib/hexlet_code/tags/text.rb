@@ -4,10 +4,11 @@ module HexletCode
   module Tags
     # Textarea tag
     class Text
-      autoload :Tag, File.expand_path('../tag.rb', __dir__)
+      COLS = 20
+      ROWS = 40
       def self.build(name, value, attrs)
         final_attrs = attrs.except(attrs.key(value))
-        HexletCode::Tag.build('textarea', { name: name }.merge(final_attrs)) { value }
+        HexletCode::Tag.build('textarea', { name: name, cols: COLS, rows: ROWS }.merge(final_attrs)) { value }
       end
     end
   end
