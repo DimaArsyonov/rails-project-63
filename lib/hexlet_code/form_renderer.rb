@@ -17,9 +17,7 @@ module HexletCode
     def self.render_html(form_builder)
       body_html = []
       form_body = form_builder.form_body
-      form_body[:inputs].each do |input|
-        body_html << input_for_html(input)
-      end
+      form_body[:inputs].map { |input| body_html << input_for_html(input) }
 
       body_html << Tag.build('input', type: 'submit', **form_body[:submit][:options]) if form_body[:submit][:options]
 
