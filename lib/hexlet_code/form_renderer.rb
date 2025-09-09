@@ -14,7 +14,7 @@ module HexletCode
         tag_class = "HexletCode::Tags::#{input[:as].to_s.capitalize}".constantize
         input_html = tag_class.build(input[:name], input[:value], input[:attrs])
 
-        body_html << "#{label_html}\n#{input_html}"
+        body_html << "#{label_html}#{input_html}"
       end
 
       body_html << Tag.build('input', type: 'submit', **form_body[:submit][:options]) if form_body[:submit][:options]
