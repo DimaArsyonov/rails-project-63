@@ -19,7 +19,7 @@ module HexletCode
 
       body_html << Tag.build('input', type: 'submit', **form_body[:submit][:options]) if form_body[:submit][:options]
 
-      Tag.build('form', form_builder.form_body[:form_options]) { body_html.join("\n") }
+      Tag.build('form', form_builder.form_body[:form_options]) { body_html.join('') }
     end
   end
 end
