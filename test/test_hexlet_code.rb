@@ -25,16 +25,14 @@ class TestHexletCode < Minitest::Test
 
   def test_if_output_is_string
     user = User.new
-    result = HexletCode.form_for(user) do |f| # need for test
-    end
+    result = HexletCode.form_for(user) { |f| } # need for test
     assert_instance_of String, result
   end
 
   def test_if_only_user
     expected_result = '<form action="#" method="post"></form>'
     user = User.new
-    result = HexletCode.form_for(user) do |f| # need for test
-    end
+    result = HexletCode.form_for(user) { |f| } # need for test
     assert_equal expected_result, result
   end
 
@@ -42,8 +40,7 @@ class TestHexletCode < Minitest::Test
     expected_result = '<form action="#" method="post" class="hexlet-form"></form>'
     user = User.new
     attrs = { class: 'hexlet-form' }
-    result = HexletCode.form_for(user, **attrs) do |f| # need for test
-    end
+    result = HexletCode.form_for(user, **attrs) { |f| } # need for test
     assert_equal expected_result, result
   end
 
@@ -51,8 +48,7 @@ class TestHexletCode < Minitest::Test
     expected_result = '<form action="/profile" method="post" class="hexlet-form"></form>'
     user = User.new
     attrs = { class: 'hexlet-form', url: '/profile' }
-    result = HexletCode.form_for(user, **attrs) do |f| # need for test
-    end
+    result = HexletCode.form_for(user, **attrs) { |f| } # need for test
     assert_equal expected_result, result
   end
 
