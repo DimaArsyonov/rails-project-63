@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in hexlet_code.gemspec
 gemspec
 
+ruby '>= 3.1.0'
+
 gem 'irb'
 gem 'rake', '~> 13.0'
 
